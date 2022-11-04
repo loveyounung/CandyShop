@@ -1,0 +1,41 @@
+﻿@*@model IEnumerable<CandyShop.ViewModels.CandyListViewModel>*@
+@model CandyListViewModel
+
+<h1>@Model.CurrentCategory</h1>
+
+@if (Model != null)
+{
+    @foreach (var candy in Model.Candies)
+    {
+        <partial name="_candyCard" model="candy" />
+
+        @*<div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="thumbnail">
+                <img src="@candy.ImageThumbnailUrl" alt="image for candy shop" />
+            </div>
+            <div class="caption">
+                <h3 class="pull-right">@candy.Price.ToString(Constant.FormatDecimal)</h3>
+                <h3><a asp-controller="candy" asp-action="Details" asp-route-id="@candy.CandyId">@candy.Name</a></h3>
+                <h2>@candy.Name</h2>
+                <h2>@candy.Category.CategoryName</h2>
+            </div>
+
+        </div>*@
+
+    }
+
+}
+
+
+@*<body>
+        <h1>@ViewBag.CurrentCategory</h1>
+        @foreach (var candy in Model)
+        {
+            <div>
+                <h2>@candy.Name</h2>
+                <h2>@candy.Price.ToString("C")</h2>
+                <h2>@candy.Category.CategoryName</h2>
+            </div>
+
+        }
+    </body>*@
